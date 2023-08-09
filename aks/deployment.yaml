@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anonymization-deployment
+spec:
+  replicas: 3  # Número de réplicas que deseas para tu aplicación
+  selector:
+    matchLabels:
+      app: anonymization-app
+  template:
+    metadata:
+      labels:
+        app: anonymization-app
+    spec:
+      containers:
+      - name: anonimitzacio
+        image: myACR.azurecr.io/anonymization:latest
+        imagePullPolicy: Always
+        # resources:
+        #   limits:
+        #     nvidia.com/gpu: 1
+        ports:
+        - containerPort: 5000  # Puerto en el que escucha tu aplicación
