@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: anonymization-service
+spec:
+  selector:
+    app: anonymization-app
+  ports:
+  - protocol: TCP
+    port: 80  # Puerto en el que se expone el Service, el 80 es el que viene por defecto cuando ponemos la IP sola
+    targetPort: 5000  # Puerto en el que escucha tu aplicación (mismo que en el Deployment)
+  type: LoadBalancer  # Opción para obtener una IP pública y un nombre DNS
+  # type: ClusterIP  # El Service solo será accesible desde dentro del clúster AKS a través de su dirección IP interna y nombre DNS interno
