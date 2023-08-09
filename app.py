@@ -36,7 +36,7 @@ def replace_control_characters(text):
         return None
 
 def convertir_mayusculas(match):
-    return match.group().lower().capitalize() # converts to lowercase and apitalizes the first letter
+    return match.group().lower().capitalize() # converts to lowercase and capitalizes the first letter
 
 def detect_personal_info(text, nlp_models, names_list, language=['en', 'es', 'ca'], convert=False):
     if not text:
@@ -62,7 +62,7 @@ def detect_personal_info(text, nlp_models, names_list, language=['en', 'es', 'ca
                 return True
         
         if convert:
-            text = re.sub(r'\b[A-Z]+\b', convertir_mayusculas, text) # convert las palabras en mayuscula en solo la primera letra mayuscula
+            text = re.sub(r'\b[A-Z]+\b', convertir_mayusculas, text)
         
         # NLTK
         sentences = nltk.sent_tokenize(text) # tokenize text into sentences and words
@@ -115,7 +115,7 @@ def main():
         except:
             # If not a DICOM image, assume it is a regular image format (PNG, JPG, etc.)
             try:
-                image_file.seek(0) # Reiniciar el puntero del archivo
+                image_file.seek(0)
                 image = cv2.imdecode(np.frombuffer(image_file.read(), np.uint8), cv2.IMREAD_COLOR)
             except:
                 return jsonify({"error": "Tipo de imagen no soportado"}), 400
