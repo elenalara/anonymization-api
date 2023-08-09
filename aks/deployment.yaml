@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: anonymization-deployment
 spec:
-  replicas: 3  # Número de réplicas que deseas para tu aplicación
+  replicas: 3
   selector:
     matchLabels:
       app: anonymization-app
