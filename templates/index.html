@@ -27,11 +27,11 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data); // Agrega esta línea para depurar la respuesta recibida
+                console.log(data);
                 document.getElementById("result").innerText = data.output;
             })
             .catch(error => {
-                document.getElementById("result").innerText = "Error en la detección";
+                document.getElementById("result").innerText = "Error in detection";
             });
         });
     </script>
