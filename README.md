@@ -38,11 +38,11 @@ The repository is organized as follows:
    
 5. (Optional) If you want to run the application in a Docker container:
    ```bash
-   docker build -t personal-data-detection .
-   docker run -p 5000:5000 personal-data-detection
+   docker build -t anonymization .
+   docker run -p 5000:5000 anonymization
    ```
 6. (Optional) AKS Deployment:
-   - Ensure you have an AKS instance set up.
+   - Ensure you have an AKS instance set up and the docker image is in your ACR.
    - Apply the configuration in the `aks/` folder using `kubectl`:
      ```bash
      kubectl apply -f aks/deployment.yaml
